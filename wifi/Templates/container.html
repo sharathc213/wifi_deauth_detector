@@ -1,0 +1,83 @@
+{{container.r}}{% for container in containers %}
+            <div class="col-xxl-4 col-md-3">
+              <div class="card info-card sales-card">
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"
+                    ><i class="bi bi-three-dots"></i
+                  ></a>
+                  <ul
+                    class="dropdown-menu dropdown-menu-end dropdown-menu-arrow"
+                  >
+                    <li class="dropdown-header text-start">
+                      <h6>Options</h6>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="#"
+                        onclick="startc('{{container.id}}')"
+                        >Start</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="#"
+                        onclick="stopc('{{container.id}}')"
+                        >Stop</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="/console?container={{container.id}}&shell=/bin/bash"
+                        >Console(bash)</a
+                      >
+                    </li>
+                    <li>
+                        <a
+                          class="dropdown-item"
+                          href="/console?container={{container.id}}&shell=/bin/sh"
+                          >Console(sh)</a
+                        >
+                      </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="#"
+                        onclick="deletec('{{container.id}}')"
+                        >Delete</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="card-body">
+                  <h2 class="card-title">
+                    <span>Status</span>| {{container.state}}
+                  </h2>
+                  
+
+                  <div class="d-flex align-items-center">
+                    <div
+                      class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+                    >
+                      <i class="bi bi-box"></i>
+                    </div>
+                    <div class="ps-3">
+                      <span class="text-muted small pt-2 ps-1"
+                        >{{container.name}}</span
+                      >
+                    </div>
+                    </div><br>
+                    <div class="ps-3">
+                      <span class="text-muted small pt-2 ps-1"
+                        >Image:{{container.image}}</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Sales Card -->
+            {% endfor %}

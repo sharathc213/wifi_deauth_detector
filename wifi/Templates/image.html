@@ -1,0 +1,53 @@
+{% for image in images %}
+<div class="col-xxl-4 col-md-3">
+  <div class="card info-card sales-card">
+    <div class="filter">
+      <a class="icon" href="#" data-bs-toggle="dropdown"
+        ><i class="bi bi-three-dots"></i
+      ></a>
+      <ul
+        class="dropdown-menu dropdown-menu-end dropdown-menu-arrow"
+      >
+        <li class="dropdown-header text-start">
+          <h6>Options</h6>
+        </li>
+
+        <li>
+          <a
+            class="dropdown-item"
+            href="#"
+            onclick="starti('{{image.name}}')"
+            >Start</a
+          >
+        </li>
+        <li>
+          <a
+            class="dropdown-item"
+            href="#"
+            onclick="deletei('{{image.name}}')"
+            >Delete</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div class="card-body">
+      <h2 class="card-title"><span>Image</span>
+
+      <div class="d-flex align-items-center">
+        <div
+          class="card-icon rounded-circle d-flex align-items-center justify-content-center"
+        >
+          <i class="bi bi-box"></i>
+        </div>
+        <div class="ps-3">
+          <span class="text-muted small pt-2 ps-1"
+            >{{image.name}}</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Sales Card -->
+{% endfor %}
