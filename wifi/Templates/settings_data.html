@@ -1,0 +1,169 @@
+<div class="row"><div class="col-md-10 col-12  order-2">
+    <div class="tab-content" id="v-pills-tabContent">
+        <div class="tab-pane fade active show" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+            
+
+            <section class="card">
+                <div class="card-content">
+                    <div class="card-body">
+                        <div class="col-12">
+                            <div class="row">
+                               
+                                <div class="col-md-12 col-12">
+                                    <h5>Database Settings</h5>
+                                    <hr/>
+                                    <form class="form-horizontal form-referral-link row mt-2" method="post">
+                                        
+                                        
+                                        <div class="col-12">
+                                            <fieldset class="form-label-group">
+                                                <input type="text" hidden class="form-control old_link" id="referral-link" value="{{database}}" required="" autofocus="">
+                                                <input type="text" class="form-control database_link" id="referral-link" value="{{database}}" required="" autofocus="">
+                                                <label for="first-name">Database</label>
+                                            </fieldset>
+                                        </div>
+                                        <div class="row col-md-12">
+                                            <div class="col-md-6 col-12 ">
+                                                <button type="button" onclick="resetDatabase();" class="btn-gradient-secondary btn-sm white my-1">Clear DB</button>
+                                            </div>
+                                        <div class="col-md-6 col-12 text-right">
+                                            <button type="button" onclick="saveDatabase();" class="btn-gradient-primary my-1 text-right">Save</button>
+                                        </div>
+                                        
+                                    </div>
+                                    </form>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+            <div id="accordion1" class="collapse-icon accordion-icon-rotate left">
+                
+                <div class="content-body"><div id="transactions">
+                    <div class="transactions-table-tbody">
+                        <section class="card pull-up">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="col-12">
+                                        <div class="row">
+                                            {% for adapter  in alldevice %}
+                                            <div class="col-md-4 col-12 py-1">
+                                                <p class="mb-0"><span class="d-inline-block d-md-none text-bold-700"></span>{{adapter.name}}</p>
+                                            </div>
+                                            <div class="col-md-4 col-12 py-1">
+                                                <span class="d-inline-block d-md-none text-bold-700"></span> <span class="d-inline-block d-md-none text-bold-700"></span> {% if adapter.support %} <a href="#" class="mb-0 btn-sm btn btn-outline-success round">Support Monitor Mode</a>{% else %}<a href="#" class="mb-0 btn-sm btn btn-outline-warning round">Not Monitor Mode</a>{% endif %}
+                                            </div>
+                                            <div class="col-md-4 col-12 py-1">
+                                                <label class="switch">
+                                                    {% if adapter.status %}
+                                                    <input class="check-{{adapter.name}}" onclick="enableDisMon('{{adapter.name}}')" type="checkbox" checked>
+                                                    {% else %}
+                                                    <input class="check-{{adapter.name}}" onclick="enableDisMon('{{adapter.name}}')" type="checkbox">
+                                                    {% endif %}
+                                                    <span class="slider round"></span>
+                                                  </label>
+                                            </div>
+                                            {% endfor %}
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        
+                    
+                    </div>
+                </div>
+                        </div>
+                
+                
+            </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+            <div id="accordion2" class="collapse-icon accordion-icon-rotate left">
+                
+                
+            
+                        <!-- User Profile -->
+                        <section class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="col-12">
+                                        <div class="row">
+                                           
+                                            <div class="col-md-12 col-12">
+                                           
+                                                <form class="form-horizontal form-user-profile row mt-2" action="index.html">
+                                                    <div class="col-6">
+                                                        <select class='custom-select monitor_mode_devices'>
+                                                            {% if adapter_before %}
+                                                            <option selected value="{{adapter_before}}">{{adapter_before}}</option>
+                                                            {% else %}
+                                                            <option selected disabled>Select Adapter</option>
+                                                            {% endif %}
+                                                            {% for adapter  in wifi_device_with_mon %}
+                                                            {% if adapter.status %}
+                                                        <option value="{{adapter.name}}">{{adapter.name}}</option>
+                                                        {% endif %}
+                                                        {% endfor %}</select>
+                                                    </div>
+                                                    
+                                                    <div class="col-6">
+                                                        <fieldset class="form-label-group">
+                                                            <input type="text" hidden class="form-control detector_api_old" id="last-name" value="{{api}}" required="" autofocus="">
+                                                            <input type="text" class="form-control detector_api" id="last-name" value="{{api}}" required="" autofocus="">
+                                                            <label for="last-name">API Key</label>
+                                                        </fieldset>
+                                                    </div>
+                                                    
+                                                    <div class="col-md-12 col-12 text-right">
+                                                        <button type="button" onclick="saveDetector();" class="btn-gradient-primary my-1 text-right">Save</button>
+                                                    </div>
+                                                   
+                                                    
+                                                </form>
+                                            
+                                              
+                                       
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    
+
+
+                
+                
+                
+            </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+            <div id="accordion3" class="collapse-icon accordion-icon-rotate left">
+                
+               
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-2 col-12 order-1">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link active show" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">General</a>
+        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Devices</a>
+        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Deauth Detector</a>
+        <!-- <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Other</a> -->
+    </div>
+</div>
+</div></div>

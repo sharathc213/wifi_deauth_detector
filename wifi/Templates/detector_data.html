@@ -1,0 +1,393 @@
+<div class="content-body">
+    <meta id="data" data-d="{{data}}">
+    <meta id="data2" data-d2="{{data3}}">
+    <script>
+       
+
+
+       var d = $('#data').data('d');
+    var bar = $('#data2').data('d2');
+console.log(bar);
+    var date;
+    var value2 = [
+    ];
+    var lab=[];
+
+
+
+    var value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var total=d.length;
+    for (var i = 0; i < d.length; i++) {
+        flag=false;
+        mac=d[i]['victim'];
+        if(value2.length==0){
+            value2.push({'y':1,'label':mac});
+            lab.push(String(mac));
+        }else{
+        
+        for (var k = 0; k < value2.length; k++) {
+
+            if(value2[k]['label']==mac){
+                value2[k]['y']=value2[k]['y']+1;
+            }else{
+                flag=true;
+            }
+        }
+        if(flag){
+            value2.push({'y':1,'label':mac});
+             lab.push(String(mac));
+        }}
+        
+        date = new Date(parseInt(d[i]['timestamp']));
+        // // alert(d.getDate() + '/' + (d.getMonth()+1) + '/' + d.getFullYear());
+        dateFormat = date.getHours() + ":" + date.getMinutes() + ", "+ date.toDateString();
+        // console.log(dateFormat);
+        value[date.getMonth()] = value[date.getMonth()] + 1;
+    }
+    for (var m=0;m<value2.length;m++){
+           value2[m]['y']=(value2[m]['y']/total)*100;
+          
+                        
+    }
+        console.log(value2)
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                data: [{
+                    type: "doughnut",
+                    backgroundColor: "transparent",
+                    startAngle: 60,
+                    innerRadius: 50,
+                    indexLabelFontSize: 10,
+                    indexLabel: "{label} - #percent%",
+                    toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+                    dataPoints: value2
+                }]
+            });
+            chart.render();
+            
+       
+            </script>
+    <!-- ICO Token &  Distribution-->
+    <div class="row match-height">
+        <div class="col-xl-8 col-12">
+            <div class="card card-transparent">
+                <div class="card-header card-header-transparent py-20">
+                    <div class="btn-group dropdown">
+                        <h6>Attacks Graph (by month)</h6>
+                    </div>
+                </div>
+                
+                <div id="ico-token-supply-demand-chart" class="height-300"></div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-12">
+            <div class="card card-transparent">
+                <div class="card-header card-header-transparent">
+                    <h6 class="card-title">victims</h6>
+                </div>
+                <div class="card-content">
+                    <!-- <div id="chartContainer" class="height-200 donut donutShadow"></div> -->
+                    <div id="chartContainer" class="height-200" ></div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div id="recent-transactions" class="col-12">
+            <h6 class="my-2">All attacks</h6>
+            <div class="card">
+                <div class="card-content">
+                    <div class="table-responsive">
+                        <table id="recent-orders" class="table table-hover table-xl mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="border-top-0">Id</th>
+                                    <th class="border-top-0">Time/Date</th>
+                                    <th class="border-top-0">Attack Type</th>
+                                    <th class="border-top-0">Signal strength</th>
+                                    <th class="border-top-0">Router MAC</th>
+                                    <th class="border-top-0">Router Info</th>
+                                    <th class="border-top-0">Victim MAC</th>
+                                    <th class="border-top-0">Victim Info</th>
+                                    <th class="border-top-0"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                {% for a in data2 %}
+
+
+
+                                <tr>
+                                    <td class="text-truncate">{{ forloop.counter }}</td>
+                                    <td class="text-truncate">{{a.date}}</td>
+                                    <td class="text-truncate">
+                                        <span class="mb-0 btn-sm btn btn-outline-danger round">deauth</span>
+                                    </td>
+                                    <td class="text-truncate" style="color: {% if a.signalStrength > -30 %}green{% elif a.signalStrength > -60 %}yellow{% else %}red{% endif %};">
+                                        {{ a.signalStrength }}
+                                    </td>
+                                    
+                                    
+                                    
+                                    <td class="text-truncate p-1">{{a.router}}</td>
+                                    <td class="text-truncate">OUI:{{a.routerInfo.oui}}</br>
+                                        Company Name:{{a.routerInfo.company_name}}</br>
+                                        Company Address:{{a.routerInfo.company_address}}</br>
+                                        Country Code:{{a.routerInfo.country_code}}</td>
+                                    <td>{{a.victim}}</td>
+                                    <td class="text-truncate">OUI:{{a.victimInfo.oui}}</br>
+                                        Company Name:{{a.victimInfo.company_name}}</br>
+                                        Company Address:{{a.victimInfo.company_address}}</br>
+                                        Country Code:{{a.victimInfo.country_code}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <script>
+                            $('.table').DataTable();
+                       </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ Recent Transactions -->
+    <!-- Basic Horizontal Timeline -->
+   
+    <!--/ Basic Horizontal Timeline -->
+</div>
+</div>
+
+
+<!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
+
+<script>
+ 
+
+//     var d = $('#data').data('d');
+//     var bar = $('#data2').data('d2');
+// console.log(bar);
+//     var date;
+//     var value2 = [
+//     ];
+//     var lab=[];
+
+
+
+//     var value = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+//     var total=d.length;
+//     for (var i = 0; i < d.length; i++) {
+//         flag=false;
+//         mac=d[i]['victim'];
+//         if(value2.length==0){
+//             value2.push({"name":mac,"className":"ct-"+mac,"value":1});
+//             lab.push(String(mac));
+//         }else{
+        
+//         for (var k = 0; k < value2.length; k++) {
+
+//             if(value2[k]['name']==mac){
+//                 value2[k]['value']=value2[k]['value']+1;
+//             }else{
+//                 flag=true;
+//             }
+//         }
+//         if(flag){
+//              value2.push({"name":mac,"className":"ct-"+mac,"value":1});
+//              lab.push(String(mac));
+//         }}
+        
+//         date = new Date(parseInt(d[i]['timestamp']));
+//         // // alert(d.getDate() + '/' + (d.getMonth()+1) + '/' + d.getFullYear());
+//         dateFormat = date.getHours() + ":" + date.getMinutes() + ", "+ date.toDateString();
+//         // console.log(dateFormat);
+//         value[date.getMonth()] = value[date.getMonth()] + 1;
+//     }
+//     for (var m=0;m<value2.length;m++){
+//            value2[m]['value']=(value2[m]['value']/total)*100;
+          
+                        
+//     }
+//  console.log(value2 )
+    // ICO TOKEN (SUPPLY & DEMAND)
+    var verticalBar3 = new Chartist.Bar('#ico-token-supply-demand-chart', {
+        labels: ['jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        series: [
+            bar,
+        ]
+    }, {
+        axisY: {
+            labelInterpolationFnc: function (value) {
+                return (value);
+            },
+            scaleMinSpace: 40,
+        },
+        axisX: {
+            showGrid: false,
+            labelInterpolationFnc: function (value, index) {
+                return value;
+            }
+        },
+        plugins: [
+            Chartist.plugins.tooltip({
+                appendToBody: true,
+                pointClass: 'ct-point'
+            })
+        ]
+    });
+    verticalBar3.on('draw', function (data) {
+        if (data.type === 'bar') {
+            data.element.attr({
+                style: 'stroke-width: 25px',
+                y1: 250,
+                x1: data.x1 + 0.001
+            });
+            data.group.append(new Chartist.Svg('circle', {
+                cx: data.x2,
+                cy: data.y2,
+                r: 12
+            }, 'ct-slice-pie'));
+        }
+    });
+    verticalBar3.on('created', function (data) {
+        var defs = data.svg.querySelector('defs') || data.svg.elem('defs');
+        defs.elem('linearGradient', {
+            id: 'barGradient3',
+            x1: 0,
+            y1: 0,
+            x2: 0,
+            y2: 1
+        }).elem('stop', {
+            offset: 0,
+            'stop-color': 'rgb(28, 120, 255)'
+        }).parent().elem('stop', {
+            offset: 1,
+            'stop-color': 'rgb(41, 188, 253)'
+        });
+        return defs;
+    });
+
+
+    // TOKEN DISTRIBUTION
+    // var chart = new Chartist.Pie('#token-distribution-chart', {
+    //     // series: [10, 20, 50, 20, 5, 50, 15],
+    //     series: value2,
+
+    //     labels: lab
+    // }, {
+    //     donut: true,
+    //     startAngle: 310,
+    //     donutSolid: true,
+    //     donutWidth: 30,
+    //     labelInterpolationFnc: function (value) {
+    //         var total = chart.data.series.reduce(function (prev, series) {
+    //             return prev + series.value;
+    //         }, 0);
+    //         return total + '%';
+    //     }
+    // });
+
+    // chart.on('created', function () {
+    //     var defs = chart.svg.elem('defs');
+
+    //     defs.elem('linearGradient', {
+    //         id: 'ct-00:14:22:01:23:45',
+    //         x1: 0,
+    //         y1: 1,
+    //         x2: 0,
+    //         y2: 0
+    //     }).elem('stop', {
+    //         offset: 0,
+    //         'stop-color': '#2191ff'
+    //     }).parent().elem('stop', {
+    //         offset: 1,
+    //         'stop-color': '#2abbfe'
+    //     });
+
+    //     defs.elem('linearGradient', {
+    //         id: 'ct-00:14:22:01:23:45',
+    //         x1: 0,
+    //         y1: 1,
+    //         x2: 0,
+    //         y2: 0
+    //     }).elem('stop', {
+    //         offset: 0,
+    //         'stop-color': '#892ffe'
+    //     }).parent().elem('stop', {
+    //         offset: 1,
+    //         'stop-color': '#c37bfe'
+    //     });
+
+    //     defs.elem('linearGradient', {
+    //         id: 'ct-advisors',
+    //         x1: 0,
+    //         y1: 1,
+    //         x2: 0,
+    //         y2: 0
+    //     }).elem('stop', {
+    //         offset: 0,
+    //         'stop-color': '#6aecae'
+    //     }).parent().elem('stop', {
+    //         offset: 1,
+    //         'stop-color': '#39d98c'
+    //     });
+
+        // defs.elem('linearGradient', {
+        //     id: 'ct-project-advisors',
+        //     x1: 0,
+        //     y1: 1,
+        //     x2: 0,
+        //     y2: 0
+        // }).elem('stop', {
+        //     offset: 0,
+        //     'stop-color': '#f19686'
+        // }).parent().elem('stop', {
+        //     offset: 1,
+        //     'stop-color': '#e85d44'
+        // });
+
+        // defs.elem('linearGradient', {
+        //     id: 'ct-masternodes',
+        //     x1: 0,
+        //     y1: 1,
+        //     x2: 0,
+        //     y2: 0
+        // }).elem('stop', {
+        //     offset: 0,
+        //     'stop-color': '#e67ea5'
+        // }).parent().elem('stop', {
+        //     offset: 1,
+        //     'stop-color': '#fa679d'
+        // });
+
+        // defs.elem('linearGradient', {
+        //     id: 'ct-program',
+        //     x1: 0,
+        //     y1: 1,
+        //     x2: 0,
+        //     y2: 0
+        // }).elem('stop', {
+        //     offset: 0,
+        //     'stop-color': '#99f3f3'
+        // }).parent().elem('stop', {
+        //     offset: 1,
+        //     'stop-color': '#33d4d8'
+        // });
+    // });
+    // chart.on('draw', function (data) {
+    //     if (data.type === 'label') {
+    //         if (data.index === 0) {
+    //             data.element.attr({
+    //                 dx: data.element.root().width() / 2,
+    //                 dy: data.element.root().height() / 2
+    //             });
+    //         } else {
+    //             data.element.remove();
+    //         }
+    //     }
+    // });
+
+</script>

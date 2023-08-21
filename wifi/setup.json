@@ -1,0 +1,1 @@
+{"wifi": {"database": "mongodb://192.168.29.220:27017", "deauther_detector": {"api": "hai", "adapter_name_before": "wlan0", "adapter_name_after": "", "sensor_pid": 20022}}}

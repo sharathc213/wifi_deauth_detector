@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-md-8 col-12">
+        <h6 class="my-2">START/STOP Sensor</h6>
+        <div class="card pull-up">
+            <div class="card-content">
+                <div class="card-body">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-md-8 col-12">
+                                <p><strong>Adapter Lessoning:</strong></p>
+                                <h1>{{adapter}}</h1>
+                                <p class="mb-0">Use the button to start and stop the sensor</p>
+                            </div>
+                            <div class="col-md-4 col-12 text-center text-md-right">
+                                {% if sensor %}
+                                <button onclick="stop_deauth_detector();" type="button" class=" DD-stop btn-gradient-secondary mt-2">Stop Sensor<i class="la la-angle-right"></i></button>
+                                {% else %}
+                                
+                                <button onclick="start_deauth_detector('{{adapter}}');" type="button" class="DD-start btn-gradient-secondary mt-2">Start Sensor<i class="la la-angle-right"></i></button>
+                                {% endif%}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-12">
+        <h6 class="my-2">Sensor Status</h6>
+        <div class="card">
+            <div class="card-content collapse show">
+                <div class="card-body">
+                    <div class="font-small-3 clearfix">
+                        {% if sensor %}
+                        
+                        <span class="float-left">Scanning....</span>
+                        {% else %}
+                        
+                        <span class="float-left">Sensor Not Running</span>
+                        {% endif%}
+                        
+                        <!-- <span class="float-right">$5M</span> -->
+                    </div>
+                    <div class="progress progress-sm my-1 box-shadow-2">
+                        {% if sensor %}
+                        <div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        {% else %}
+                        
+                        <div class="progress-bar bg-sucess" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        {% endif%}
+                        
+                    </div>
+                    <div class="font-small-3 clearfix">
+                        {% if sensor %}
+                        
+                        <span class="float-left">Sensor Status<br> <strong>ON</strong></span>
+                        {% else %}
+                        
+                        <span class="float-left">Sensor Status<br> <strong>OFF</strong></span>
+                        {% endif%}
+                        <!-- <span class="float-left">Distributed <br> <strong>6,235,125 CIC</strong></span>
+                        <span class="float-right text-right">Contributed  <br> <strong>5478 ETH | 80 BTC</strong></span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
