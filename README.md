@@ -4,7 +4,7 @@
 
 The WiFi Deauthentication Detection System is a Django-based web application designed to monitor and manage WiFi devices, detect deauthentication events, and provide a user-friendly interface for configuring settings and accessing device information.
 
-![Screenshot](/path/to/screenshot.png)
+![Screenshot](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture1.png)
 
 ## Features
 
@@ -29,17 +29,20 @@ The WiFi Deauthentication Detection System is a Django-based web application des
    python manage.py runserver
    ```
 3. Access the web application at `http://localhost:8000` in your web browser.
-   
+   ![Screenshot](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture2.png)
 4. Configure the database settings in `settings`.
-5. select Device tab and enable monitor mode,
+   ![Screenshot](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture3.png)
+5. select Device tab and enable monitor mode.
 6. select deauth detector tab and select the device and set the macaddress.io api key(optional).
+   ![Screenshot](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture4.png)
 7. select dashboard and start the sensor.
-8. if attack is  detected it visualise on the dashboard(refresh is required).
-
+   ![Screenshot](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture5.png)
+11. if attack is  detected it visualise on the dashboard(refresh is required).
+    ![Screenshot](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture6.png)
 
 ## Usage
 
-1. Log in to the web application using your credentials.
+1. Browse in to the web application.
 2. Navigate through the GUI to access different features:
    - Enable/disable monitor mode
    - View connected devices and monitor mode status
@@ -50,11 +53,11 @@ The WiFi Deauthentication Detection System is a Django-based web application des
 ## Sensor Script
 
 The sensor script (`deauth2.py`) is responsible for scanning deauthentication events. It can be triggered from the UI using subprocesses.
-
+![Screenshot](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture7.png)
 
 ## Contributing
 
-Contributions are welcome! Please follow the guidelines in `CONTRIBUTING.md` before submitting pull requests.
+Contributions are welcome! Please submit pull requests.
 
 ## License
 
@@ -62,14 +65,5 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Credits
 
-- Developed by [Your Name](https://github.com/yourusername)
+- Developed by [Your Name](https://github.com/sharathc213)
 
-## Acknowledgements
-
-- Special thanks to [Name] for inspiration and guidance.
-
----
-
-Replace placeholders such as `/path/to/screenshot.png`, `yourusername`, `Name`, etc., with relevant information specific to your project. Make sure to include any additional sections or details that you think are important for users and contributors to know.
-
-Once you've filled in all the necessary information, save the file as `README.md` in the root directory of your project. This README will serve as a comprehensive guide for anyone interested in using or contributing to your WiFi deauthentication detection system.
