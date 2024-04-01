@@ -4,7 +4,7 @@
 
 The WiFi Deauthentication Detection System is a Django-based web application designed to monitor and manage WiFi devices, detect deauthentication events, and provide a user-friendly interface for configuring settings and accessing device information.
 
-![Screenshot](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture1.png)
+![Screenshot1](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture1.png)
 
 ## Features
 
@@ -29,16 +29,17 @@ The WiFi Deauthentication Detection System is a Django-based web application des
    python manage.py runserver
    ```
 3. Access the web application at `http://localhost:8000` in your web browser.
-   ![Screenshot](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture2.png)
+   ![Screenshot2](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture2.png)
 4. Configure the database settings in `settings`.
-   ![Screenshot](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture3.png)
+   ![Screenshot3](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture3.png)
 5. select Device tab and enable monitor mode.
 6. select deauth detector tab and select the device and set the macaddress.io api key(optional).
-   ![Screenshot](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture4.png)
+   ![Screenshot4](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture4.png)
 7. select dashboard and start the sensor.
-   ![Screenshot](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture5.png)
+   ![Screenshot5](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture5.png)
 11. if attack is  detected it visualise on the dashboard(refresh is required).
-    ![Screenshot](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture6.png)
+
+    ![Screenshot6](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture6.png)
 
 ## Usage
 
@@ -53,7 +54,8 @@ The WiFi Deauthentication Detection System is a Django-based web application des
 ## Sensor Script
 
 The sensor script (`deauth2.py`) is responsible for scanning deauthentication events. It can be triggered from the UI using subprocesses.
-![Screenshot](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture7.png)
+
+![Screenshotz](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture7.png)
 
 ## Contributing
 
