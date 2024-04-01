@@ -4,7 +4,7 @@
 
 The WiFi Deauthentication Detection System is a Django-based web application designed to monitor and manage WiFi devices, detect deauthentication events, and provide a user-friendly interface for configuring settings and accessing device information.
 
-![Screenshot1](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture1.png)
+![Screenshot1](https://github.com/sharathc213/wifi_deauth_detector/blob/main/banner.jpg)
 
 ## Features
 
