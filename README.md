@@ -18,28 +18,24 @@ The WiFi Deauthentication Detection System is a Django-based web application des
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/wifi-deauth-detection.git
+  git clone https://github.com/yourusername/wifi-deauth-detection.git
    ```
 
 2. Install dependencies:
    ```bash
    cd wifi-deauth-detection
    pip install -r requirements.txt
-   ```
-
-3. Configure the database settings in `settings.py`.
-
-4. Run migrations:
-   ```bash
-   python manage.py migrate
-   ```
-
-5. Start the Django development server:
-   ```bash
+   cd wifi
    python manage.py runserver
    ```
+3. Access the web application at `http://localhost:8000` in your web browser.
+   
+4. Configure the database settings in `settings`.
+5. select Device tab and enable monitor mode,
+6. select deauth detector tab and select the device and set the macaddress.io api key(optional).
+7. select dashboard and start the sensor.
+8. if attack is  detected it visualise on the dashboard(refresh is required).
 
-6. Access the web application at `http://localhost:8000` in your web browser.
 
 ## Usage
 
@@ -53,13 +49,8 @@ The WiFi Deauthentication Detection System is a Django-based web application des
 
 ## Sensor Script
 
-The sensor script (`sensor.py`) is responsible for scanning deauthentication events. It can be triggered from the UI using subprocesses.
+The sensor script (`deauth2.py`) is responsible for scanning deauthentication events. It can be triggered from the UI using subprocesses.
 
-To run the sensor script:
-
-```bash
-python sensor.py
-```
 
 ## Contributing
 
