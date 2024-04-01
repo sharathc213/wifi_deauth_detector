@@ -70,6 +70,8 @@ The sensor script (`deauth2.py`) is responsible for scanning deauthentication ev
 
 Contributions are welcome! Please submit pull requests.
 
+## More Details
+[Blog on Medium](https://medium.com/@_sharathc/enhancing-cybersecurity-with-a-wifi-deauthentication-detection-system-df157e888283)
 
 ## Credits
 
