@@ -70,11 +70,8 @@ The sensor script (`deauth2.py`) is responsible for scanning deauthentication ev
 
 Contributions are welcome! Please submit pull requests.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ## Credits
 
-- Developed by [Your Name](https://github.com/sharathc213)
+- Developed by [Sharath c](https://github.com/sharathc213)
 
