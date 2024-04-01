@@ -29,15 +29,24 @@ The WiFi Deauthentication Detection System is a Django-based web application des
    python manage.py runserver
    ```
 3. Access the web application at `http://localhost:8000` in your web browser.
-![Screenshot2](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture2.png)\n
-4. Configure the database settings in `settings`.\n
+   
+![Screenshot2](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture2.png)
+
+4. Configure the database settings in `settings`.
+
 ![Screenshot3](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture3.png)
-5. select Device tab and enable monitor mode.\n
-6. select deauth detector tab and select the device and set the macaddress.io api key(optional).\n
+
+5. select Device tab and enable monitor mode.
+   
+6. select deauth detector tab and select the device and set the macaddress.io api key(optional).
+   
 ![Screenshot4](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture4.png).
-7. select dashboard and start the sensor.\n
+
+7. select dashboard and start the sensor.
+   
 ![Screenshot5](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture5.png).
-9. if attack is  detected it visualise on the dashboard(refresh is required).\n
+
+8. if attack is  detected it visualise on the dashboard(refresh is required).
 
 ![Screenshot6](https://github.com/sharathc213/wifi_deauth_detector/blob/main/Picture6.png).
 
