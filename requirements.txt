@@ -1,0 +1,8 @@
+django
+bson
+pymongo
+netifaces
+scapy
+maclookup
+requests
+psutil

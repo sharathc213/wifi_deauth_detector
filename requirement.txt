@@ -1,6 +1,0 @@
-django
-pymongo
-bson
-scapy
-requests
-netifaces
