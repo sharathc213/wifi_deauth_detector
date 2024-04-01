@@ -17,8 +17,8 @@ The WiFi Deauthentication Detection System is a Django-based web application des
 ## Installation
 
 1. Clone the repository:
-   ```bash
-  git clone https://github.com/yourusername/wifi-deauth-detection.git
+    ```bash
+   git clone https://github.com/yourusername/wifi-deauth-detection.git
    ```
 
 2. Install dependencies:
