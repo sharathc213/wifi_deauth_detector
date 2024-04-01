@@ -15,9 +15,6 @@ import datetime
 
 import netifaces
 
-
-
-import pcapy
 import sys
 import os
 import datetime
